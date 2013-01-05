@@ -25,7 +25,11 @@ def parseGitBranch(result,g)
 end
 
 def parseGitCommit(result,g)
-	# do nothing for the moment
+	if result.split("\n").any? {|item| item['insertion'] | item['deletion']} then 
+		g.notify "notification", "Commited!", "#{result.split("\n")[-1]}"
+	else 
+		g.notify "notification", "Commit error!", "#{result.split("\n")[-1]}"
+	end
 
 end
 
