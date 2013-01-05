@@ -6,7 +6,7 @@ require 'gitParsing.rb'
 
 # exec the command in terminal
 command = ARGV
-puts "\""+command.join("\" \"")+"\""
+#puts "executed : #{"\""+command.join("\" \"")+"\""}"
 result=`#{"\""+command.join("\" \"")+"\""}`
 
 # preparing notif
@@ -25,11 +25,13 @@ case command[0]
   			parseGitBranch(result,g)
   		when "commit"
   			parseGitCommit(result,g)
+      when "push"
+        parseGitPush(result,g)
 	end
    when "subl"
    	# do nothing
   else
-  	g.notify "notification", "No alfred rule", "#{result}"
+  	g.notify "notification", "No alfred rule", "#{result}" unless result==""
 end
 
 # prompt the result in terminal 

@@ -28,3 +28,13 @@ def parseGitCommit(result,g)
 	# do nothing for the moment
 
 end
+
+def parseGitPush(result,g)
+	# get error
+	unless result['error'] then
+		g.notify "notification", "Pushing error!", "#{result.split("\n")[-1]}"
+	else
+		g.notify "notification", "Your work is pushed!", "#{result.split("\n")[-1]}"
+	end
+
+end
