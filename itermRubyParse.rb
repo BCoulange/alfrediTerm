@@ -12,7 +12,7 @@ g = Growl.new "localhost", "#{command.join(' ')}"
 g.add_notification("notification", "ruby-growl Notification",
                    Growl::RUBY_LOGO_PNG)
 
-
+# Get special commands...
 if ['gpom','gcam'].include? command[0] then 
   case command[0]
     when "gpom"
@@ -24,17 +24,15 @@ if ['gpom','gcam'].include? command[0] then
   end
 
 else
-# exec the command in terminal
-#puts "executed : #{"\""+command.join("\" \"")+"\""}"
-result=`#{"\""+command.join("\" \"")+"\""}`
 
+# ... or exec the command in terminal
+  #puts "executed : #{"\""+command.join("\" \"")+"\""}"
+  result=`#{"\""+command.join("\" \"")+"\""}`
 
-
-
-# parsing for notifications
-case command[0]
-  when "git"
-  	case command[1]
+  # parsing for notifications
+  case command[0]
+    when "git"
+  	 case command[1]
   		when "status"
   			parseGitStatus(result,g)
   		when "branch"
@@ -50,10 +48,10 @@ case command[0]
   	g.notify("notification", "No alfred rule", "#{result}") if result!=""
 end
 
-# prompt the result in terminal 
-result.split("\n").each do |line|
-	puts line
 end
 
 
+# prompt the result in terminal 
+result.split("\n").each do |line|
+  puts line
 end
