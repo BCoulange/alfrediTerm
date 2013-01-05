@@ -21,6 +21,7 @@ When nothing is computed for your command, this just prompt the result in one no
 Special commands are shorcuts to very often used commands :
 * `gpom` for `git push origin master`
 * `gcam "my description"` for `git commit -am "my description"
+* `gpo myBranch` for `git push origin mybranch`
 
 ### subl 
 * `subl whatever` : does not prompt notification

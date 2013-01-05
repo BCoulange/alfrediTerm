@@ -13,7 +13,7 @@ g.add_notification("notification", "ruby-growl Notification",
                    Growl::RUBY_LOGO_PNG)
 
 # Get special commands...
-if ['gpom','gcam'].include? command[0] then 
+if ['gpom','gcam','gpo'].include? command[0] then 
   case command[0]
     when "gpom"
       result=`git push origin master`
@@ -21,6 +21,9 @@ if ['gpom','gcam'].include? command[0] then
     when "gcam"
       result=`git commit -am \"#{command[1]}\"`
       parseGitCommit(result,g)
+    when "gpo"
+      result=`git push origin \"#{command[1]}\"`
+      parseGitPush(result,g)     
   end
 
 else
