@@ -20,7 +20,7 @@ When nothing is computed for your command, this just prompt the result in one no
 ### Special commands
 Special commands are shorcuts to very often used commands :
 * `gpom` for `git push origin master`
-* `gcam "my description"` for `git commit -am "my description"`
+* `gcam "my description"` for `git commit -am "my description"
 
 ### subl 
 * `subl whatever` : does not prompt notification
