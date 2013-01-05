@@ -7,6 +7,12 @@ require 'gitParsing.rb'
 
 command = ARGV
 
+# preparing notif
+g = Growl.new "localhost", "#{command.join(' ')}"
+g.add_notification("notification", "ruby-growl Notification",
+                   Growl::RUBY_LOGO_PNG)
+
+
 if ['gpom','gcam'].include? command[0] then 
   case command[0]
     when "gpom"
@@ -22,10 +28,7 @@ else
 #puts "executed : #{"\""+command.join("\" \"")+"\""}"
 result=`#{"\""+command.join("\" \"")+"\""}`
 
-# preparing notif
-g = Growl.new "localhost", "#{command.join(' ')}"
-g.add_notification("notification", "ruby-growl Notification",
-                   Growl::RUBY_LOGO_PNG)
+
 
 
 # parsing for notifications
