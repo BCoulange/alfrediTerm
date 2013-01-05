@@ -4,8 +4,21 @@ require 'ruby-growl/ruby_logo'
 $LOAD_PATH << './parsers'
 require 'gitParsing.rb'
 
-# exec the command in terminal
+
 command = ARGV
+
+if ['gpom','gcam'].include? command[0] then 
+  case command[0]
+    when "gpom"
+      result=`git push origin master`
+      parseGitPush(result,g)
+    when "gcam"
+      result=`git commit -am \"#{command[1]}\"`
+      parseGitCommit(result,g)
+  end
+
+else
+# exec the command in terminal
 #puts "executed : #{"\""+command.join("\" \"")+"\""}"
 result=`#{"\""+command.join("\" \"")+"\""}`
 
@@ -37,4 +50,7 @@ end
 # prompt the result in terminal 
 result.split("\n").each do |line|
 	puts line
+end
+
+
 end
