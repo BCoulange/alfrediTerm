@@ -31,7 +31,7 @@ case command[0]
    when "subl"
    	# do nothing
   else
-  	g.notify "notification", "No alfred rule", "#{result}" unless result==""
+  	g.notify "notification", "No alfred rule", "#{result}" unless result!=""
 end
 
 # prompt the result in terminal 
