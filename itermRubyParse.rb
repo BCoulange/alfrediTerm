@@ -1,7 +1,7 @@
 require 'ruby-growl'
 require 'ruby-growl/ruby_logo'
 
-$LOAD_PATH << './parsers'
+$LOAD_PATH << '~/code/alfrediTerm/parsers'
 require 'gitParsing.rb'
 
 
