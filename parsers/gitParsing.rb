@@ -35,7 +35,7 @@ end
 
 def parseGitPush(result,g)
 	# get error
-	unless result.split("\n").any?{|item| item['error']} then
+	if result.split("\n").any?{|item| item['error']} then
 		g.notify "notification", "Pushing error!", "#{result.split("\n")[-1]}"
 	else
 		g.notify "notification", "Your work is pushed!", "#{result.split("\n")[-1]}"
