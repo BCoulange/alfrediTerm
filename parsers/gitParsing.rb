@@ -1,6 +1,6 @@
 # git parsing
 def parseGitStatus(result,g)
-	unless result['nothing added to commit'] then
+	unless result['nothing to commit'] then
 			modifes=result.split("# Untracked files")[0]
 			modifes=modifes.split("#	")
 			modifes.shift
