@@ -14,6 +14,12 @@ adds just some notifs.
 * Install alfred extension
 
 ## Computed uses
+### General behaviour
+When nothing is computed for your command, this just prompt the result in one notification. Useful for some command like `pwd`
+
+### subl 
+* `subl whatever` : does not prompt notification
+
 ### git 
 * `git status` : display if there is changes to commit or not
 * `git branch` : your working branch and the others.
