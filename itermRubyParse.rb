@@ -6,7 +6,7 @@ require 'gitParsing.rb'
 
 # exec the command in terminal
 command = ARGV
-puts command.join(' ')
+puts "\""+command.join("\" \"")+"\""
 result=`#{command.join(' ')}`
 
 # preparing notif
